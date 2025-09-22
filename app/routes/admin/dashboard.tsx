@@ -1,12 +1,18 @@
 import React from 'react';
 import {Header, StatsCard, TripCard} from "../../../components";
 import {dashboardStats, user, allTrips} from "~/constants";
-
-
-function Dashboard() {
+import {getUser} from "~/appwrite/auth";
+import type { Route } from "./+types/dashboard";
 
     const {totalUsers, usersJoined, tripsCreated, userRole, totalTrips} = dashboardStats;
 
+    export const clientLoader = async () => getUser();
+
+
+function Dashboard({loaderData}:  Route.ComponentProps) {
+    const user = loaderData as User | null;
+
+    //throw new Error("some error thrown in a loader"); TESTEn
     return (
         <main className="dashboard wrapper">
             <Header
