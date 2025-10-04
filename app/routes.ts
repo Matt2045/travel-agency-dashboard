@@ -13,7 +13,11 @@ export default [
         route('all-users', 'routes/admin/all-users.tsx'),
         route('trips', 'routes/admin/trips.tsx'),
         route("create-trip", "routes/admin/create-trip.tsx"),
-        route("trip-detail", "routes/admin/trip-detail.tsx"),
+        route('trips/:tripId', 'routes/admin/trip-detail.tsx'),
 
+    ]),
+    layout('routes/root/page-layout.tsx', [
+        index('routes/root/travel-page.tsx'),
     ])
+
 ] satisfies RouteConfig;

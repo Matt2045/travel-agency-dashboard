@@ -12,6 +12,7 @@ export default function Navitems({ handleClick}: { handleClick?: () => void }) {
     const handleLogout = async () => {
             await logoutUser();
             navigate("/sign-in");
+
     }
 
 
